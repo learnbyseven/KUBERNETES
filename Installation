@@ -1,0 +1,46 @@
+//Install Dependent Packages 
+apt-get update && apt-get install -y apt-transport-https curl
+
+// ADD Key
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+
+// ADD REPO
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+
+// INSTALL KUBERNETES PACKAGES
+apt-get update
+apt-get install -y kubelet kubeadm kubectl
+
+// HOLD SERVICE
+apt-mark hold kubelet kubeadm kubectl
+
+// ADDITIONAL SETTINGS AND PACKAGE UPDATE 
+modprobe br_netfilter
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+echo "net.bridge.bridge-nf-call-iptables=1" >> /etc/sysctl.conf
+sysctl -p
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt-get update
+apt-cache policy docker-ce
+apt-get install -y docker-ce
+
+// VERIFY DOCKER STATUS 
+systemctl status docker
+
+//SWAP OFF
+#vim.tiny /etc/fstab 
+swapoff -a
+
+// NETWORKING
+kubeadm init --pod-network-cidr=10.244.0.0/16
+#kubeadm_join.txt
+mkdir /root/.kube
+cp -i /etc/kubernetes/admin.conf /root/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+
+//STATUS CHECK 
+kubectl taint nodes --all node-role.kubernetes.io/master-
+kubectl get nodes
