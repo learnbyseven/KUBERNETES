@@ -99,4 +99,17 @@ ADDING NODE
 -----------
 
 
+DASHBOARD
+---------
+
+$ kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
+$ kubectl get svc -n kube-system | grep kubernetes-dashboard
+$ kubectl edit svc/kubernetes-dashboard -n kube-system
+//change ClusterIP to NodePort
+// Trouble Shoot
+// Crash loop back dashboard
+// kubectl drain <node_name> --delete-local-data --ignore-daemonsets
+// kubectl uncordon <node_name>
+
+
 
