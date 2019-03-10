@@ -117,3 +117,17 @@ $ sudo kubectl create serviceaccount dashboard -n default
 $ kubectl create clusterrolebinding dashboard-admin -n default --clusterrole=cluster-admin --serviceaccount=default:dashboard
 $ kubectl get secret $(kubectl get serviceaccount dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
 
+
+CA-ADVISOR
+-----------
+docker run \
+  --volume=/:/rootfs:ro \
+  --volume=/var/run:/var/run:ro \
+  --volume=/sys:/sys:ro \
+  --volume=/var/lib/docker/:/var/lib/docker:ro \
+  --volume=/dev/disk/:/dev/disk:ro \
+  --publish=8080:8080 \
+  --detach=true \
+  --name=cadvisor \
+  google/cadvisor:latest
+
