@@ -1,7 +1,11 @@
 # KUBERNETESTRAINING
 KUBERNETES TRAINING
 
-## Fictitious Company "Mario" AIM adopt containers, build enterprise container solution based on kubernetes and become super mario 
+## Fictitious Company "Mario" 
+### Mission statement
+1. containers Adoption
+2. Building enterprise grade container solution based on kubernetes 
+3. Become Super Mario 
 
 <img width="200" alt="portfolio_view" src="https://supermariorun.com/assets/img/hero/hero_chara_mario_pc.png">
 
