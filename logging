@@ -4,25 +4,15 @@ metadata:
   name: logger
 spec:
   containers:
-  - name: app
+  - name: application
     image: busybox
-    args:
-    - /bin/sh
-    - -c
-    - >
-      i=0;
-      while true;
-      do
-        echo "$i: $(date)" >> /var/log/my.log;
-        i=$((i+1));
-        sleep 1;
-      done
+    args: [/bin/sh, -c, 'while true; do date; sleep 1; done > /var/log/application.log']
     volumeMounts:
     - name: varlog
       mountPath: /var/log
   - name: sidecar
     image: busybox
-    args: [/bin/sh, -c, 'tail -n+1 -f /var/log/my.log']
+    args: [/bin/sh, -c, 'tail -n+1 -f /var/log/application.log']
     volumeMounts:
     - name: varlog
       mountPath: /var/log
