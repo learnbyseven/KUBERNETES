@@ -9,21 +9,21 @@ NGINX DEPLOYMENT:
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-name: new-nginx-deployment
+ name: new-nginx-deployment
 spec:
-selector:
-matchLabels:
-app: new-nginx1
-replicas: 2
-template:
-metadata:
-labels:
-app: new-nginx1
-spec:
-containers:
-- name: new-nginx
-image: docker.io/giriraj789/new-nginx1
-ports:
-- containerPort: 80
+ selector:
+  matchLabels:
+   app: new-nginx1
+ replicas: 2
+ template:
+  metadata:
+   labels:
+    app: new-nginx1
+  spec:
+   containers:
+   - name: new-nginx
+     image: docker.io/giriraj789/new-nginx1
+     ports:
+     - containerPort: 80
 
 
