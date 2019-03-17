@@ -33,3 +33,30 @@ kubectl expose deployment new-nginx-deployment --type=NodePort --port=80 -n ngin
 
 
 
+INIT container:
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    imagePullPolicy: IfNotPresent
+    command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+  initContainers:
+  - name: init-myservice
+    image: busybox
+    imagePullPolicy: IfNotPresent
+    command: ['sh', '-c', 'echo waiting to get ready! && sleep 60']
+    
+    
+    
+    Proxy:
+    
+    curl http://localhost:8081/api/v1/namespaces/default/pods
+
+
+
