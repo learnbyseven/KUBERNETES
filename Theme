@@ -92,10 +92,22 @@ spec:
         
         
   Deployments:
+  -----------
   kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1 -n d 
   
   kubectl -n d rollout status deployment/nginx-deployment
   kubectl -n d rollout history deployment/nginx-deployment
   
+  
+  HPA
+  ----
+  
+kubectl -n d autoscale deployment nginx-deployment  --min=1 --max=3 --cpu-percent=2
+kubectl -n d describe  hpa/nginx-deployment
 
+
+INGRESS
+-------
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
 
