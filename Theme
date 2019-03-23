@@ -57,6 +57,11 @@ spec:
     Proxy:
     
     curl http://localhost:8081/api/v1/namespaces/default/pods
+    
+##
+kubectl -n bluegreen get pods -l version!=green
+kubectl -n bluegreen get pods -l 'version notin (green, blue)'
+kubectl -n bluegreen get pods -l 'version notin ( blue)'
 
 
 
