@@ -62,6 +62,6 @@ spec:
 kubectl -n bluegreen get pods -l version!=green
 kubectl -n bluegreen get pods -l 'version notin (green, blue)'
 kubectl -n bluegreen get pods -l 'version notin ( blue)'
-
+kubectl -n bluegreen get pods -l 'version,version notin (blue)'
 
 
