@@ -98,9 +98,12 @@ spec:
   kubectl -n d rollout status deployment/nginx-deployment
   kubectl -n d rollout history deployment/nginx-deployment
   
+
+6 DAY
   
-  HPA
-  ----
+  
+HPA
+----
   
 kubectl -n d autoscale deployment nginx-deployment  --min=1 --max=3 --cpu-percent=2
 kubectl -n d describe  hpa/nginx-deployment
@@ -108,6 +111,26 @@ kubectl -n d describe  hpa/nginx-deployment
 
 INGRESS
 -------
-
+## Ingress controller deployment
+STEP1: Mandate roles
+--------------------
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+
+STEP2: Ingress Service
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
+## Add external IP with Host IP 
+kubectl -n ingress-nginx get svc
+kubectl -n ingress-nginx edit svc/ingress-nginx
+## 
+## Additional kubectl -n ingress-nginx get --export svc/ingress-nginx > svc.yaml
+## NAME            TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)                      AGE
+## ingress-nginx   LoadBalancer   <none>       192.168.1.70   80:30356/TCP,443:32492/TCP   <unknown>
+
+
+
+
+
+
+
+
 
