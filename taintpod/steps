@@ -1,0 +1,16 @@
+STEP1
+-----
+kubectl create ns taint
+
+STEP2
+-----
+kubectl taint node kmaster.192.168.1.70.nip.io color=redhat:NoSchedule
+
+STEP3 
+-----
+kubectl -n taint create -f taint_pod.yaml 
+
+STEP4
+-----
+kubectl -n taint describe pod/demopod-64b78bff6f-2s22p
+
