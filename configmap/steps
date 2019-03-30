@@ -1,6 +1,7 @@
 kubectl create namespace cmap
 kubectl -n cmap create configmap data --from-file=index.html 
-kubectl -n cmap -f conmappod.yaml 
+kubectl -n cmap create -f cm_pod.yaml
 kubectl -n cmap label pod webserver web=airroute
 kubectl -n cmap expose pod/webserver
+kubectl delete ns cmap
 
