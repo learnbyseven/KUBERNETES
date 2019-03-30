@@ -6,7 +6,7 @@ metadata:
 spec: 
   containers: 
     - 
-      image: "docker.io/giriraj789/webserver:A"
+      image: "docker.io/giriraj789/blue:v1"
       name: webservera
       ports: 
         - 
@@ -19,4 +19,4 @@ spec:
     - 
       name: data
       persistentVolumeClaim:
-        claimName: persistentclaim
+        claimName: pvc01

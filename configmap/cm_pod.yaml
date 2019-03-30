@@ -6,7 +6,7 @@ metadata:
 spec: 
   containers: 
     - 
-      image: "docker.io/giriraj789/webserver:A"
+      image: "docker.io/giriraj789/blue:v1"
       name: webservera
       ports: 
         - 

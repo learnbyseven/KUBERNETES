@@ -6,9 +6,8 @@ metadata:
     app: webserver
 spec:
   clusterIP: None
+  ports:
+  - port: 8080
   selector:
     app: webserver
-    - port: 8080
-      name: webserver
-  selector:
-    app: webserver
+    

@@ -1,18 +1,25 @@
 --- 
 apiVersion: apps/v1beta2
-kind: DaemonSet
+kind: Deployment
 metadata: 
-  name: dset
+  name: veg
 spec: 
+  replicas: 1
   selector: 
     matchLabels: 
-      app: dset
+      app: veg
   template: 
     metadata: 
       labels: 
-        app: dset
+        app: veg
     spec: 
       containers: 
         - 
           image: "docker.io/giriraj789/demopod:v1"
-          name: dset
+          name: veg
+      tolerations: 
+        - 
+          key: color
+          operator: Equal
+          value: green
+

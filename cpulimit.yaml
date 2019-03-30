@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demopod
+spec:
+  containers:
+  - name: demopod
+    image: docker.io/giriraj789/demopod:v1
+    resources:
+      requests:
+        memory: "64000Mi"
+        cpu: "250m"
+      limits:
+        memory: "128000Mi"
+        cpu: "500m"

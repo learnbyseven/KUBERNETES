@@ -4,13 +4,20 @@ kubectl create ns taint
 
 STEP2
 -----
-kubectl taint node kmaster.192.168.1.70.nip.io color=redhat:NoSchedule
+kubectl taint node kmaster.192.168.1.70.nip.io color=red:NoSchedule
 
 STEP3 
 -----
-kubectl -n taint create -f taint_pod.yaml 
+kubectl -n taint create -f taint_pod_orig.yaml 
 
 STEP4
 -----
 kubectl -n taint describe pod/demopod-64b78bff6f-2s22p
 
+STEP5
+-----
+kubectl taint node kmaster.192.168.1.70.nip.io color:NoSchedule-
+
+STEP6
+-----
+kubectl -n taint get pods
