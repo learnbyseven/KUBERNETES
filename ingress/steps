@@ -28,7 +28,7 @@ INGRESS
 ## Ingress controller deployment
 STEP1: Mandate roles
 --------------------
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
 
 STEP2: Ingress Service creation / edit SVC  with external IP in case pending Use sample_svc.yaml for details
 ------------------------------------------------------------------------------------------------------------
