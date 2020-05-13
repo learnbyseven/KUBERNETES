@@ -1,0 +1,19 @@
+# Show resolution of invidual pod 
+#Server:		10.96.0.10
+#Address:	10.96.0.10#53
+#Name:	headless-0.headless.head.svc.cluster.local
+#Address: 192.168.0.46
+#root@kmaster:~/KTRAINING/module5/HeadlessService# kubectl -n head exec -it headless-0 nslookup headless-1.headless.head.svc.cluster.local
+#Server:		10.96.0.10
+#Address:	10.96.0.10#53
+#Name:	headless-1.headless.head.svc.cluster.local
+#Address: 192.168.0.47
+#root@kmaster:~/KTRAINING/module5/HeadlessService# kubectl -n head exec -it headless-0 nslookup headless-2.headless.head.svc.cluster.local
+#Server:		10.96.0.10
+#Address:	10.96.0.10#53
+#Name:	headless-2.headless.head.svc.cluster.local
+#Address: 192.168.0.48
+
+kubectl create ns headless
+kubectl -n headless create -f headless_svc_pod.yaml 
+kubectl -n head exec -it headless-0 nslookup headless-2.headless.head.svc.cluster.local
