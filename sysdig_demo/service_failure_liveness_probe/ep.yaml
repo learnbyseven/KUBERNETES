@@ -1,0 +1,13 @@
+kind: "Endpoints"
+apiVersion: "v1"
+metadata:
+  name: "externaldb"
+subsets:
+  -
+    addresses:
+      -
+        ip: "13.234.70.59"
+    ports:
+      -
+        port: 3306
+        name: "externaldb"

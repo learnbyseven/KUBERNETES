@@ -1,0 +1,15 @@
+#STEPS
+1. kubectl create ns wordpress
+2. kubectl -n wordpress apply -f https://raw.githubusercontent.com/learnbyseven/SECURE-DEMO/master/sysdig_demo/wordpress/wordpress.yaml 
+-- Check POD status is running 
+3. kubectl -n wordpress get pod 
+4. Access wordpress application on http://hostip:32323
+4. It asked to connect database , Details below:
+5 DB name : vote_db
+- DB Address : db.wordpress.svc.cluster.local:3306
+- DB USER: root
+- DB Password : india@123
+
+Finish and start creating your site
+ 
+"FINISH"

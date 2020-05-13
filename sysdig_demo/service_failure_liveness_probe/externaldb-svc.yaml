@@ -1,0 +1,15 @@
+---
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: "externaldb"
+spec:
+  selector:
+    app: externaldb
+  ports:
+    -
+      name: "externaldb"
+      protocol: "TCP"
+      port: 3306
+      targetPort: 3306
+      nodePort: 0
