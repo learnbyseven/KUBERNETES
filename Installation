@@ -1,5 +1,6 @@
 Install-kub-ub.sh contents below:
--------------------------
+---------------------------------
+---------------------------------
 
 apt-get update && apt-get install -y apt-transport-https curl docker.io
 cat > /etc/docker/daemon.json <<EOF
