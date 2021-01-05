@@ -1,4 +1,5 @@
 ## Execute using 
+echo "Kubernetes vanilla installation begins using KubeADM"
 sudo apt-get update && apt-get install -y apt-transport-https curl docker.io
 sleep 2 
 sudo cat > /etc/docker/daemon.json <<EOF
