@@ -3,6 +3,9 @@
 
 #!/bin/bash
 echo "Kubernetes vanilla installation begins using KubeADM"
+apt-get clean
+rm /var/lib/dpkg/lock    
+rm /var/cache/apt/archives/lock
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 br_netfilter
 EOF
@@ -12,7 +15,9 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 EOF
 sudo sysctl --system
+sleep 2
 apt-get update -y 
+sleep 1
 apt-get install -y apt-transport-https curl docker.io
 sleep 1
 cat > /etc/docker/daemon.json <<EOF
