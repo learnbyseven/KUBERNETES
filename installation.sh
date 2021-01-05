@@ -1,5 +1,5 @@
 ## Execute using 
-## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/installation.sh | bash -s 
+## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/installation.sh | bash 
 
 #!/bin/bash
 echo "Kubernetes vanilla installation begins using KubeADM"
