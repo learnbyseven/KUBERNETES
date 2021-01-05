@@ -32,5 +32,5 @@ sleep 2
 #sudo mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
 #sudo kubectl taint nodes --all node-role.kubernetes.io/master-
 #sudo kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
-sleep 1
+#sleep 1
 echo "COMPLETED"
