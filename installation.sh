@@ -2,9 +2,10 @@
 ## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/installation.sh | bash -s 
 
 #!/bin/bash
-echo "Kubernetes vanilla installation begins using KubeADM"
-sudo apt-get update && apt-get install -y apt-transport-https curl docker.io
-sleep 2 
+sudo echo "Kubernetes vanilla installation begins using KubeADM"
+sudo apt-get update -y 
+sudo apt-get install -y apt-transport-https curl docker.io
+sleep 1
 sudo cat > /etc/docker/daemon.json <<EOF
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
@@ -15,17 +16,17 @@ sudo cat > /etc/docker/daemon.json <<EOF
   "storage-driver": "overlay2"
 }
 EOF
-sleep 2 
+sleep 1 
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 sudo systemctl enable docker
-sleep 2 
+sleep 1 
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 sleep 1 
 sudo cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
-sleep 2 
+sleep 1 
 sudo apt-get update
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 sudo apt-get install -y kubelet kubeadm kubectl
