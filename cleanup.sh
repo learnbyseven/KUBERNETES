@@ -5,4 +5,3 @@ kubeadm reset
 echo "y"
 iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
 rm -rf ~/.kube/
-
