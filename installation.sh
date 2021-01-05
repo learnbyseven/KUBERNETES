@@ -1,4 +1,5 @@
 ## Execute using 
+#!/bin/bash
 echo "Kubernetes vanilla installation begins using KubeADM"
 sudo apt-get update && apt-get install -y apt-transport-https curl docker.io
 sleep 2 
