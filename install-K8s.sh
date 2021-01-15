@@ -43,7 +43,7 @@ EOF
 sleep 1 
 apt-get update
 ##Workaround to disable swap on Linux host 
-sed -i -e '2s/^/#/' /etc/fstab
+#sed -i -e '2s/^/#/' /etc/fstab
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 apt-get install -y kubelet kubeadm kubectl
 swapoff -a
