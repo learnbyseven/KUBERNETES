@@ -18,7 +18,8 @@ sudo sysctl --system
 sleep 2
 apt-get update -y 
 sleep 1
-apt-get install -y apt-transport-https curl docker.io
+export DEBIAN_FRONTEND=noninteractive
+apt-get install -y libpq-dev apt-transport-https curl docker.io
 sleep 1
 cat > /etc/docker/daemon.json <<EOF
 {
