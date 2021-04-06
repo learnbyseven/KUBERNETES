@@ -54,3 +54,9 @@ kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
 sleep 1
 echo "COMPLETED"
 #### FINISH 
+
+## Manually add nodes to the server 
+## cat /kub.txt
+## Execute the /kub.txt on ubuntu system to make it as a member of kubernetes cluster
+## Check cluster status 
+## kubectl get nodes 
