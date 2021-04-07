@@ -56,6 +56,7 @@ sleep 1
 echo "COMPLETED"
 #### FINISH 
 
+
 ## Manually add nodes to the server 
 ## cat /kub.txt
 ## Execute the /kub.txt on ubuntu system to make it as a member of kubernetes cluster
