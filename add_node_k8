@@ -48,3 +48,11 @@ apt-get update
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 apt-get install -y kubelet kubeadm kubectl
 swapoff -a
+
+
+
+## Manually add nodes to the server 
+## cat /kub.txt
+## Execute the /kub.txt on ubuntu system to make it as a member of kubernetes cluster
+## Check cluster status on master node 
+## kubectl get nodes 
