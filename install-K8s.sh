@@ -56,4 +56,7 @@ sleep 1
 echo "COMPLETED"
 #### FINISH 
 
+## FOR ADDING NODE
+## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/add_node_k8.sh | bash 
+
 
