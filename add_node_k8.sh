@@ -50,9 +50,8 @@ apt-get install -y kubelet kubeadm kubectl
 swapoff -a
 
 
-
-## Manually add nodes to the server 
-## cat /kub.txt
-## Execute the /kub.txt on ubuntu system to make it as a member of kubernetes cluster
-## Check cluster status on master node 
-## kubectl get nodes 
+## After running add_node_k8.sh on worker node 
+## Copy  /kub.txt located at master node.
+## Paste the contents on worker node and enter 
+## Post sucessful execution; Check cluster status on master node command $kubectl get nodes
+## finisH
