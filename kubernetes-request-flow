@@ -1,0 +1,23 @@
+Simple flow:
+1. kubectl, send http request (deploy pod with nginx) to the API Server
+2. API Server validates the request and persists it to etcd
+3. etcd notifies back the API Server
+4. [Controller-manager] Deployment controller is observing the state of the cluster through the API Server
+- new desired state described in a Deployment object `Deployment / metadata.name: nginx / spec.replica: 1`
+- creates new ReplicaSet object `ReplicaSet / metadata.name: nginx-XYZ` to scale up new Pod
+5. API Server invokes the Scheduler
+- object `Pod / metadata.name: nginx-XYZ-XXX / spec.nodeName: <null>`
+6. Scheduler decides on which Node to run the pod on and return that to the API Server
+- run pod on some Node, `Pod / metadata.name: nginx-XYZ-XXX / spec.nodeName: NodeX`
+7. API Server persists it to etcd
+8. etcd notifies back the API Server
+9. API Server invokes the Kubelet in the corresponding node, NodeX
+10. Kubelet talks to the container runtime engine like docker
+- get image and run container
+- update the pod status to the API Server, `Pod / metadata.name: nginx-XYZ-XXX / spec.nodeName: NodeX / status: Pending`
+11. Kubelet updates the pod status (Pending, ContainerCreating, Running etc.) to the API Server
+12. API Server persists the new state in etcd, `Pod / metadata.name: nginx-XYZ-XXX / spec.nodeName: NodeX / status: Running`
+
+
+Kubectl ---(with deployment.yaml) --- > API server (Api server validates otherwise error) ----> API server persist to etcd (the deployment) - etcd notifies back once
+persisted - CM  watching etcd (this new deployment found desired state) --CM start working After validating 
