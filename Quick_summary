@@ -7,3 +7,8 @@ Deployment :
 3. don’t allow for easy updates or rollbacks. 
 4. Deployments do all of these. 
 5. As a result, you’ll almost always deploy Pods via a Deployment controller.
+
+Deployment - Rolling update and roll back 
+RS - Scalability / Self healing 
+
+
