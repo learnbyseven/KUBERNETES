@@ -1,0 +1,9 @@
+
+
+Deployment : 
+
+1. Pods don’t self-heal
+2. they don’t scale
+3. don’t allow for easy updates or rollbacks. 
+4. Deployments do all of these. 
+5. As a result, you’ll almost always deploy Pods via a Deployment controller.
