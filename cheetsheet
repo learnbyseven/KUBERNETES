@@ -4,3 +4,4 @@ kubectl label node "your node-name" node-role.kubernetes.io/worker-
 
 kubectl get namespace nginx-mesh -o json > nginx-mesh.json
 kubectl replace --raw "/api/v1/namespaces/nginx-mesh/finalize" -f ./nginx-mesh.json
+kubeclt api-resources 
