@@ -52,6 +52,7 @@ swapoff -a
 
 ## After running add_node_k8.sh on worker node 
 ## Copy  /kub.txt located at master node.
+## OR Generate token using command on master $kubeadm token create --print-join-command 
 ## Paste the contents on worker node and enter 
 ## Post sucessful execution; Check cluster status on master node command $kubectl get nodes
 ## finisH
