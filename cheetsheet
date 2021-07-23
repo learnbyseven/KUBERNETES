@@ -1,5 +1,5 @@
 kubeadm token create --print-join-command
-kubectl label node "your node-name" node-role.kubernetes.io/worker-
+kubectl label node "your node-name" node-role.kubernetes.io/worker=
 
 
 kubectl get namespace nginx-mesh -o json > nginx-mesh.json
