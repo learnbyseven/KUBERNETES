@@ -46,5 +46,5 @@ Environment="NO_PROXY="localhost,127.0.0.1,::1"
 #systemctl restart docker 
 
 
-
+apt-get install -y kubelet=1.20.1-00 kubeadm=1.20.1-00 kubectl=1.20.1-00
 
