@@ -49,9 +49,10 @@ echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 apt-get install -y kubelet=1.20.1-00 kubeadm=1.20.1-00 kubectl=1.20.1-00
 swapoff -a
 echo "K PACKAGE INSTALLATION FINISH"
-#kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-bind-port=6443 > /kub.txt
-#mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
-#kubectl taint nodes --all node-role.kubernetes.io/master-
+kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-bind-port=6443 > /kub.txt
+mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl taint nodes --all node-role.kubernetes.io/master-
+echo "SDN - CALICO INSTALLATION IS PENDING"
 #kubectl apply -f https://docs.projectcalico.org/v3.10/manifests/calico.yaml
 #sleep 1
 #echo "COMPLETED"
