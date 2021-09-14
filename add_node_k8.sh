@@ -2,7 +2,10 @@
 ## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/add_node_k8.sh | bash 
 
 #!/bin/bash
+echo "####################################################"
 echo "Kubernetes vanilla installation begins using KubeADM"
+echo "####################################################"
+sleep 1
 apt-get clean
 rm /var/lib/dpkg/lock    
 rm /var/cache/apt/archives/lock
@@ -19,6 +22,10 @@ sleep 2
 apt-get update -y 
 sleep 1
 export DEBIAN_FRONTEND=noninteractive
+echo "##########################"
+echo "DOCKER INSTALLATION BEGINS"
+echo "##########################"
+sleep 1
 apt-get install -y libpq-dev apt-transport-https curl docker.io
 sleep 1
 cat > /etc/docker/daemon.json <<EOF
@@ -43,11 +50,19 @@ deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 sleep 1 
 apt-get update
+sleep 1 
 ##Workaround to disable swap on Linux host 
 #sed -i -e '2s/^/#/' /etc/fstab
+echo "##############################################"
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
-apt-get install -y kubelet=1.20.1-00 kubeadm=1.20.1-00 kubectl=1.20.1-00
+echo "##############################################"
 swapoff -a
+sleep1
+apt-get install -y kubelet=1.20.1-00 kubeadm=1.20.1-00 kubectl=1.20.1-00
+sleep 1
+echo "######################################################################################################"
+echo "K8s Node Package installation finishes, Now you can use master token to add these nodes in K8s Cluster"
+echo "#######################################################################################################"
 
 
 ## After running add_node_k8.sh on worker node 
