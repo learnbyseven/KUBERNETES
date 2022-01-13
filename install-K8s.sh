@@ -75,4 +75,5 @@ echo "#########################"
 ## FOR ADDING NODE
 ## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/add_node_k8.sh | bash 
 
-
+## Additional 
+# echo "alias k='kubectl' > .bashrc && source .bashrc
