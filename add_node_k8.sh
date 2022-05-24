@@ -58,7 +58,7 @@ echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 echo "##############################################"
 swapoff -a
 sleep1
-apt-get install -y kubelet=1.20.1-00 kubeadm=1.20.1-00 kubectl=1.20.1-00
+apt-get install -y kubelet=1.22.1-00 kubeadm=1.22.1-00 kubectl=1.22.1-00
 sleep 1
 echo "######################################################################################################"
 echo "K8s Node Package installation finishes, Now you can use master token to add these nodes in K8s Cluster"
