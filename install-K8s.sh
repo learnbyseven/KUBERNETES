@@ -57,17 +57,17 @@ sleep 2
 echo "KUBERNTES PACKAGE INSTALLATION FINISH"
 echo "#####################################"
 sleep 1
-kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-bind-port=6443 > /kub.txt
+kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-bind-port=6443 
 mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl taint nodes --all node-role.kubernetes.io/master-
-#echo "SDN - CALICO INSTALLATION STARTING NOW"
-#echo "######################################"
-#sleep 1
+echo "SDN - CALICO INSTALLATION STARTING NOW"
+echo "######################################"
+sleep 1
 #curl https://docs.projectcalico.org/manifests/calico.yaml -O
 #sleep 2
-#kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 #kubectl apply -f https://docs.projectcalico.org/v3.10/manifests/calico.yaml
-#sleep 1
+sleep 1
 echo "K8 INSTALLATION COMPLETED"
 echo "#########################"
 #### FINISH 
