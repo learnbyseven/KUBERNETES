@@ -58,6 +58,7 @@ echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 echo "##############################################"
 swapoff -a
 sleep1
+apt update
 apt-get install -y kubelet=1.22.1-00 kubeadm=1.22.1-00 kubectl=1.22.1-00
 sleep 1
 echo "######################################################################################################"
