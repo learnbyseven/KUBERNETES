@@ -5,3 +5,14 @@ kubectl label node "your node-name" node-role.kubernetes.io/node1=
 kubectl get namespace nginx-mesh -o json > nginx-mesh.json
 kubectl replace --raw "/api/v1/namespaces/nginx-mesh/finalize" -f ./nginx-mesh.json
 kubeclt api-resources 
+
+
+Adding node to old master
+
+Step1 : Generate token 
+kubeadm token generate
+Output - exmaple --> thp9b0k.1g9tqz8vkf78ucwf
+Step2: Copy token to create and generate print join command
+kubeadm token create hp9b0k.1g9tqz8vkf78ucwf --print-join-command
+Step3: Run step 2 output on worker node
+Finish
