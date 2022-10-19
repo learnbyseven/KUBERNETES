@@ -1,9 +1,17 @@
+(better on Masternode)
 Identity creation
 ------------------
+openssl req -new -key user1.key -out user1.csr
 
 
 Signing CSR
 -----------
+openssl x509 -req -in user1.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out user1.crt -days 500
+
+
+Remote_system
+--------------
+scp user1.key and user1.crt
 
 Install kubectl client
 -----------------------
