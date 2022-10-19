@@ -1,6 +1,6 @@
 (better on Masternode)
-Identity creation
-------------------
+Identity creation & Signing
+---------------------------
 openssl req -new -key user1.key -out user1.csr
 
 
@@ -15,12 +15,16 @@ scp user1.key and user1.crt
 
 Install kubectl client
 -----------------------
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+apt-get update
+apt-get install -y kubectl=1.22.1-00
 
 
 Setup-context
 -------------
-
-
 kubectl config set-cluster kubernetes --insecure-skip-tls-verify=true --server=https://192.168.0.77:6443
 kubectl config set-credentials user1 --client-key user1.key --client-certificate user1.crt --embed-certs
 kubectl config set-context user1 --cluster kubernetes --user user1
