@@ -1,6 +1,7 @@
 (better on Masternode)
 Identity creation & Signing
 ---------------------------
+openssl genrsa -out user1.key 2048
 openssl req -new -key user1.key -out user1.csr
 
 
@@ -29,3 +30,6 @@ kubectl config set-cluster kubernetes --insecure-skip-tls-verify=true --server=h
 kubectl config set-credentials user1 --client-key user1.key --client-certificate user1.crt --embed-certs
 kubectl config set-context user1 --cluster kubernetes --user user1
 kubectl config use-context user1
+
+
+Ref: https://www.cncf.io/blog/2020/07/31/kubernetes-rbac-101-authentication/
