@@ -29,8 +29,16 @@ spec:
       }
     }'
   EOF
-  ---------------------
-  Sample POD defination
-  ----------------------
-  
+  -----------
+  Verfication
+  -----------
+$kubectl get network-attachment-definitions
+$kubectl get crd
+$kubectl describe network-attachment-definitions macvlan-conf
+$ip link show
+$kubectl create -f https://raw.githubusercontent.com/learnbyseven/SERVICEMESH/main/kube-apps/netcat_pod_multus.yaml
+$kubectl exec -it nc1 -- /bin/bash
+---------
+PS : NetworkAttachmentDefinition needs to be created withing the namespace for NS pods to use it.
+
     
