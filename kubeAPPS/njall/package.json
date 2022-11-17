@@ -1,0 +1,26 @@
+{
+  "name": "cryptobroker",
+  "version": "1.0.0",
+  "description": "cryptobroker",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learnbyseven/cryptobroker.git"
+  },
+  "author": "giriraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/learnbyseven/cryptobroker/issues"
+  },
+  "homepage": "https://github.com/learnbyseven/cryptobroker#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "path": "^0.12.7"
+  }
+}
