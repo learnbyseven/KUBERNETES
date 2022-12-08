@@ -41,3 +41,5 @@ spec:
         memory: "128000Mi"
         cpu: "500m"
 https://discuss.kubernetes.io/t/how-to-create-user-in-kubernetes-cluster-and-give-it-access/9101/4
+kubectl drain <node-name> --ignore-daemonsets
+kubectl uncordon <node-name>

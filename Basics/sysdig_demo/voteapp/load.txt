@@ -1,3 +1,0 @@
-#while true; do curl http://ec2-13-234-209-96.ap-south-1.compute.amazonaws.com:32300; done
-ab -n 100 -c 2 http://ec2-13-234-209-96.ap-south-1.compute.amazonaws.com:32300
-
