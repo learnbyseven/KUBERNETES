@@ -1,3 +1,0 @@
-snap remove docker.dockerd
-snap remove docker
-apt install docker.io

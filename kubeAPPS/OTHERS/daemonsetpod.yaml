@@ -1,0 +1,18 @@
+--- 
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata: 
+  name: dset
+spec: 
+  selector: 
+    matchLabels: 
+      app: dset
+  template: 
+    metadata: 
+      labels: 
+        app: dset
+    spec: 
+      containers: 
+        - 
+          image: "docker.io/giriraj789/demopod:v1"
+          name: dset
