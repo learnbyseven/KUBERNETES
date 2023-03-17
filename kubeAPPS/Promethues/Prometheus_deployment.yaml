@@ -24,19 +24,29 @@ spec:
     spec:
       containers:
       - name: prometheus
-        image: prom/prometheus
+        image: prom/alertmanager
         args:
           - '--storage.tsdb.retention=6h'
           - '--storage.tsdb.path=/prometheus'
+          - '-storage.path=/alertmanager'
           - '--config.file=/etc/prometheus/prometheus.yml'
+          - '--config.file=/etc/alertmanager/config.yml'
         ports:
-        - name: web
+        - name: prometheus
           containerPort: 9090
+        - name: alertmanager
+          containerPort: 9093
         volumeMounts:
         - name: prometheus-config-volume
           mountPath: /etc/prometheus
         - name: prometheus-storage-volume
           mountPath: /prometheus
+        - name: alertmanager-config-volume
+          mountPath: /etc/alertmanager
+        - name: templates-volume
+          mountPath: /etc/alertmanager-templates
+        - name: alertmanager
+          mountPath: /alertmanager
       restartPolicy: Always
       volumes:
       - name: prometheus-config-volume
@@ -45,4 +55,13 @@ spec:
             name: prometheus-config
       - name: prometheus-storage-volume
         emptyDir:
+           sizeLimit: 500Mi
+      - name: alertmanager-config-volume
+        configMap:
+          name: alertmanager
+      - name: templates-volume
+        configMap:
+          name: alertmanager-templates
+      - name: alertmanager
+        emptyDir: {}
            sizeLimit: 500Mi
