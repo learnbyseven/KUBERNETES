@@ -33,3 +33,9 @@ kubectl config use-context user1
 
 
 Ref: https://www.cncf.io/blog/2020/07/31/kubernetes-rbac-101-authentication/
+
+
+
+
+kubectl config set-cluster sm --insecure-skip-tls-verify=true --server=http://172.31.12.84:6443
+kubectl config set-credentials ram --client-key ram.key --client-certificate ram.crt --embed-certs
