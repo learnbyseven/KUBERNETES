@@ -6,6 +6,8 @@ echo "Kubernetes vanilla installation begins using KubeADM"
 echo "####################################################"
 
 sleep 1
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+sysctl -p
 apt-get clean
 rm /var/lib/dpkg/lock    
 rm /var/cache/apt/archives/lock
