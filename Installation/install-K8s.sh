@@ -1,7 +1,5 @@
 ## Execute using 
-## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/install-K8s.sh | bash 
-
-#!/bin/bash
+## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES/refs/heads/kubeAPPS/Installation/install-K8s.sh | bash
 echo "Kubernetes vanilla installation begins using KubeADM"
 echo "#####################################"
 echo "Step 1/3 Pre-installation setup!"
