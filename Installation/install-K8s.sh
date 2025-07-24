@@ -68,6 +68,7 @@ kubectl get nodes
 sleep 3
 crictl pods
 sleep 2
+kubectl get nodes
 echo " Success = Node status "Ready" and All Pods in "Ready" state"
 echo " Validation Done"
 echo "#####FINSIH#####"
