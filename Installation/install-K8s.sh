@@ -43,6 +43,8 @@ sleep 2
 apt-get install -y cri-o kubelet kubeadm kubectl
 swapoff -a
 sleep 2
+systemctl status crio.service 
+systemctl enable crio.service 
 echo "Step 2/3 Finished Successfully !"
 echo "#####################################"
 echo "Step 3/3 KUBERNTES access setup and CNI- Calico installation !"
